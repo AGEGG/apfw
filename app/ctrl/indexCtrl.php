@@ -6,7 +6,10 @@ class indexCtrl extends \core\agegg
 {
     public function index()
     {
-        p('it is index');
+//        p('it is index');
+        $temp = \core\lib\conf::get('CTRL','route');
+        $temp = \core\lib\conf::get('ACTION','route');
+        p($temp);
         $data = 'Hello world';
         $title = '视图文件';
         $this->assign('data',$data);

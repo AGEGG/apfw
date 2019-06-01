@@ -1,6 +1,8 @@
 <?php
 
 namespace core\lib;
+use core\lib\conf;
+
 class route
 {
     public $ctrl; //控制器
@@ -26,7 +28,7 @@ class route
                 $this->action = $patharr[1];
                 unset($patharr[1]); ////为获取参数去掉方法
             } else {
-                $this->action = 'index';
+                $this->action = conf::get('ACTION','route');
             }
 //            url多余部分转换成GET
 //            p($patharr);
@@ -41,8 +43,8 @@ class route
 //            p($_GET);
 
         } else { //默认控制器和方法为index
-            $this->ctrl = 'index';
-            $this->action = 'index';
+            $this->ctrl = conf::get('CTRL','route');
+            $this->action = conf::get('ACTION','route');
         }
     }
 }
