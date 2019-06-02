@@ -12,7 +12,12 @@ define('APP',AGEGG.'/app');
 define('MODULE','app');
 define('DEBUG',true);
 
+include "vendor/autoload.php";
+
 if(DEBUG) {
+    $whoops = new \Whoops\Run;
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $whoops->register();
     ini_set('display_error','On');
 } else {
     ini_set('display_error','Off');

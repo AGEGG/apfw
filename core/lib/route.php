@@ -10,14 +10,12 @@ class route
     public function __construct()
     {
         /** 测试用例 ：http://agegg.cn/index/index/id/1/str/2
-         *
          * 1.隐藏index.php
          * 2.获取到URL参数部分
          * 3.返回对应控制器和方法
          */
 //        p($_SERVER);
-//        http://agegg.cn  $_SERVER['REQUEST_URI']为 '/'
-        if($_SERVER['REQUEST_URI'] && $_SERVER['REQUEST_URI'] != '/') {
+        if($_SERVER['REQUEST_URI'] && $_SERVER['REQUEST_URI'] != '/') { //http://agegg.cn  $_SERVER['REQUEST_URI']为 '/'
             $path = $_SERVER['REQUEST_URI'];//  打印得到/index/index/id/1/str/2
             $patharr = explode('/',trim($path,'/')); //去除最左面'/',分割成为数组
             if(isset($patharr[0])) {//有控制器
@@ -28,7 +26,7 @@ class route
                 $this->action = $patharr[1];
                 unset($patharr[1]); ////为获取参数去掉方法
             } else {
-                $this->action = conf::get('ACTION','route');
+                $this->action = conf::get('ACTION','route'); //默认配置方法
             }
 //            url多余部分转换成GET
 //            p($patharr);
@@ -41,8 +39,7 @@ class route
                 $i = $i + 2;
             }
 //            p($_GET);
-
-        } else { //默认控制器和方法为index
+        } else { //默认配置控制器和方法为index
             $this->ctrl = conf::get('CTRL','route');
             $this->action = conf::get('ACTION','route');
         }

@@ -1,0 +1,17 @@
+{
+  "name": "AGEGG PHP Framework",
+  "description": "AGEGG php framework",
+  "type": "Framework",
+  "keywords": [
+    "PHP",
+    "PHP Framework"
+  ],
+  "require":{
+    "php":">= 5.3.0",
+    "filp/whoops": "*",
+    "symfony/var-dumper":"*",
+    "catfan/medoo":"*",
+    "j4mie/idiorm": "^1.5",
+    "twig/twig": "*"
+  }
+}
